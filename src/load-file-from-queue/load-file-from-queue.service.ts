@@ -3,7 +3,9 @@ import { RabbitmqService } from './../rabbitmq/rabbitmq.service';
 
 @Injectable()
 export class LoadFileFromQueueService {
-    constructor(private readonly rabbitmqService: RabbitmqService) { }
+    constructor(private readonly rabbitmqService: RabbitmqService) { 
+        console.log('inicio LoadFile')
+    }
 
     async onModuleInit(): Promise<void> {
         console.log('LoadFileFromQueueService onModuleInit');
