@@ -3,7 +3,7 @@ import { RabbitmqService } from './../rabbitmq/rabbitmq.service';
 
 @Injectable()
 export class LoadFileFromQueueService {
-    constructor(private readonly rabbitmqService: RabbitmqService) { 
+    constructor(private readonly rabbitmqService: RabbitmqService) {
         console.log('inicio LoadFile')
     }
 
@@ -11,13 +11,16 @@ export class LoadFileFromQueueService {
         console.log('LoadFileFromQueueService onModuleInit');
         this.loadFileFromQueue();
 
-    } 
+    }
 
     loadFileFromQueue() {
-        console.log('LoadFileFromQueueService loadFileFromQueue', process.env.QUEUE_MONITOR );
-        
+        console.log('LoadFileFromQueueService loadFileFromQueue', process.env.QUEUE_MONITOR);
+
         this.rabbitmqService.consume(process.env.QUEUE_MONITOR, (msg) => {
-            console.log(msg.content.toString());
+            if (msg) {
+                console.log(msg.content.toString());
+                this.rabbitmqService.ack(msg);
+            }
         });
     }
 
