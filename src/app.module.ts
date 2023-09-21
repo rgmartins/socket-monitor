@@ -6,7 +6,8 @@ import { LoadFileFromQueueModule } from './load-file-from-queue/load-file-from-q
 import { RabbitmqService } from './rabbitmq/rabbitmq.service';
 
 @Module({
-  imports: [LoadFileFromQueueModule,
+  imports: [
+    LoadFileFromQueueModule,
     ConfigModule.forRoot({
       isGlobal: true,
     }),
@@ -14,4 +15,4 @@ import { RabbitmqService } from './rabbitmq/rabbitmq.service';
   controllers: [AppController],
   providers: [AppService, RabbitmqService],
 })
-export class AppModule {}
+export class AppModule { }
