@@ -4,6 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { LoadFileFromQueueModule } from './load-file-from-queue/load-file-from-queue.module';
 import { RabbitmqService } from './rabbitmq/rabbitmq.service';
+import { PrismaService } from './prisma/prisma.service';
 
 @Module({
   imports: [
@@ -13,6 +14,6 @@ import { RabbitmqService } from './rabbitmq/rabbitmq.service';
     }),
   ],
   controllers: [AppController],
-  providers: [AppService, RabbitmqService],
+  providers: [AppService, RabbitmqService, PrismaService],
 })
 export class AppModule { }
