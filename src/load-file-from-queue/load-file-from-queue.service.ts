@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import { RabbitmqService } from './../rabbitmq/rabbitmq.service';
-import { ConnectionsService } from 'src/connections/connections.service';
 
 @Injectable()
 export class LoadFileFromQueueService {
