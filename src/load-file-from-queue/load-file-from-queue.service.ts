@@ -1,9 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { RabbitmqService } from './../rabbitmq/rabbitmq.service';
+import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
 export class LoadFileFromQueueService {
-    constructor(private readonly rabbitmqService: RabbitmqService) {
+    constructor(private readonly rabbitmqService: RabbitmqService, private readonly prisma: PrismaService) {
         console.log('inicio LoadFile')
     }
 
