@@ -14,7 +14,7 @@ export class LoadFileFromQueueService {
 
     }
 
-    loadFileFromQueue() {
+    async loadFileFromQueue() {
         console.log('LoadFileFromQueueService loadFileFromQueue', process.env.QUEUE_MONITOR);
 
         this.rabbitmqService.consume(process.env.QUEUE_MONITOR, (msg) => {
@@ -24,6 +24,7 @@ export class LoadFileFromQueueService {
                 this.rabbitmqService.ack(msg);
             }
         });
+
     }
 
 }
