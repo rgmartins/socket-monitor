@@ -7,23 +7,26 @@ import { UpdateConnectionDto } from "../dto/update-connection.dto";
 export class ConnectionsRepository {
     constructor(private readonly prisma: PrismaService) { }
 
-    create(createConnectionDto: CreateConnectionDto) {
-        return 'This action adds a new connection';
+    async create(createConnectionDto: CreateConnectionDto) {
+        const connection = await this.prisma.connection.create({
+            data: createConnectionDto
+        });
     }
 
     findAll() {
-        return `This action returns all connections`;
+        const connections = this.prisma.connection.findMany();
     }
 
     findOne(id: number) {
-        return `This action returns a #${id} connection`;
+        const connection = this.prisma.connection.findUnique({ where: { id } });
     }
 
     update(id: number, updateConnectionDto: UpdateConnectionDto) {
-        return `This action updates a #${id} connection`;
+        const connection = this.prisma.connection.update({ where: { id }, data: updateConnectionDto });
     }
 
     remove(id: number) {
-        return `This action removes a #${id} connection`;
+        const connection = this.prisma.connection.delete({ where: { id } });
     }
+    
 }
