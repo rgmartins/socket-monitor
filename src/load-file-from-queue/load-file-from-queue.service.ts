@@ -4,6 +4,7 @@ import { ConnectionsService } from 'src/connections/connections.service';
 
 @Injectable()
 export class LoadFileFromQueueService {
+    
     constructor(private readonly rabbitmqService: RabbitmqService) {
         console.log('inicio LoadFile')
     }
@@ -22,6 +23,7 @@ export class LoadFileFromQueueService {
                 const json = JSON.parse(msg.content.toString());
                 console.log(json);
                 this.rabbitmqService.ack(msg);
+                //preciso usar o 
             }
         });
 
