@@ -1,9 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { CreateConnectionDto } from './dto/create-connection.dto';
 import { UpdateConnectionDto } from './dto/update-connection.dto';
+import { ConnectionsRepository } from './repositories/connections.repository';
 
 @Injectable()
 export class ConnectionsService {
+
+  constructor(private readonly repository: ConnectionsRepository) { }
+
+
   create(createConnectionDto: CreateConnectionDto) {
     return 'This action adds a new connection';
   }
