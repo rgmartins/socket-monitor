@@ -5,7 +5,7 @@ import { ConnectionsService } from 'src/connections/connections.service';
 @Injectable()
 export class LoadFileFromQueueService {
     
-    constructor(private readonly rabbitmqService: RabbitmqService) {
+    constructor(private readonly rabbitmqService: RabbitmqService, private readonly connectionsService: ConnectionsService) {
         console.log('inicio LoadFile')
     }
 
