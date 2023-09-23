@@ -18,7 +18,7 @@ export class LoadFileFromQueueService {
     async loadFileFromQueue() {
         console.log('LoadFileFromQueueService loadFileFromQueue', process.env.QUEUE_MONITOR);
 
-        console.log(this.connectionsService.create({id: 1, description: 'Loading file from queue'}))
+        console.log(this.connectionsService.create({id: 3, description: 'Loading file from queue'}))
 
         this.rabbitmqService.consume(process.env.QUEUE_MONITOR, (msg) => {
             if (msg) {
