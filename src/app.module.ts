@@ -8,10 +8,8 @@ import { ConnectionsModule } from './connections/connections.module';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({ isGlobal: true, }),
     LoadFileFromQueueModule,
-    ConfigModule.forRoot({
-      isGlobal: true,
-    }),
     ConnectionsModule,
   ],
   controllers: [AppController],
