@@ -10,7 +10,7 @@ export class ConnectionsService {
 
 
   create(createConnectionDto: CreateConnectionDto) {
-    return 'This action adds a new connection';
+    return this.repository.create(createConnectionDto);
   }
 
   findAll() {
