@@ -9,8 +9,8 @@ export class ConnectionsService {
   constructor(private readonly repository: ConnectionsRepository) { }
 
 
-  async create(createConnectionDto: CreateConnectionDto) {
-    return await this.repository.create(createConnectionDto);
+  async create(createConnectionDto: CreateConnectionDto): Promise<CreateConnectionDto> {
+    return this.repository.create(createConnectionDto);
   }
 
   findAll() {

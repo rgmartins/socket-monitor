@@ -7,8 +7,8 @@ import { UpdateConnectionDto } from "../dto/update-connection.dto";
 export class ConnectionsRepository {
     constructor(private readonly prisma: PrismaService) { }
 
-    async create(createConnectionDto: CreateConnectionDto) {
-        const connection = await this.prisma.connection.create({
+    async create(createConnectionDto: CreateConnectionDto): Promise<CreateConnectionDto> {
+       return await this.prisma.connection.create({
             data: createConnectionDto
         });
     }
