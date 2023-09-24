@@ -1,6 +1,6 @@
 import { Connection } from '@prisma/client'
 
 export class ConnectionEntity implements Connection {
-    id: number;
+    id: string;
     description: string;
 }

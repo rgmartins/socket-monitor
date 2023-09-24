@@ -17,15 +17,15 @@ export class ConnectionsRepository {
         const connections = this.prisma.connection.findMany();
     }
 
-    findOne(id: number) {
+    findOne(id: string) {
         const connection = this.prisma.connection.findUnique({ where: { id } });
     }
 
-    update(id: number, updateConnectionDto: UpdateConnectionDto) {
+    update(id: string, updateConnectionDto: UpdateConnectionDto) {
         const connection = this.prisma.connection.update({ where: { id }, data: updateConnectionDto });
     }
 
-    remove(id: number) {
+    remove(id: string) {
         const connection = this.prisma.connection.delete({ where: { id } });
     }
     
