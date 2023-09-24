@@ -13,6 +13,14 @@ datasource db {
 //npx prisma db push
 
 model Connection {
-  id     String   @id @default(auto()) @map("_id") @db.ObjectId
-  description String
+  id             String @id @default(auto()) @map("_id") @db.ObjectId
+  connectionId   String @unique
+  description    String
+  queueName      String
+  ip             String
+  port           Int
+  role           String
+  numConnections Int
+  header         String
+  probe          String
 }
