@@ -21,7 +21,9 @@ export class LoadFileFromQueueService {
         this.rabbitmqService.consume(process.env.QUEUE_MONITOR, (msg) => {
             if (msg) {
                 const json = JSON.parse(msg.content.toString());
-                console.log(json);
+                json.forEach(element => {
+                    console.log(element.socketMonitor)
+                });
                 this.rabbitmqService.ack(msg);
             }
         });
