@@ -4,13 +4,11 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { LoadFileFromQueueModule } from './load-file-from-queue/load-file-from-queue.module';
 import { RabbitmqService } from './rabbitmq/rabbitmq.service';
-import { ConnectionsModule } from './connections/connections.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true, }),
-    LoadFileFromQueueModule,
-    ConnectionsModule,
+    LoadFileFromQueueModule
   ],
   controllers: [AppController],
   providers: [AppService, RabbitmqService],

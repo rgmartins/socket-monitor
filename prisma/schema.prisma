@@ -14,13 +14,13 @@ datasource db {
 
 model Connection {
   id             String @id @default(auto()) @map("_id") @db.ObjectId
-  connectionId   String @unique
   description    String
   queueName      String
-  ip             String
+  host           String
   port           Int
   role           String
   numConnections Int
   header         String
   probe          String
+  memo           String
 }
