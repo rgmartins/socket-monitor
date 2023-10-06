@@ -22,7 +22,9 @@ export class LoadFileFromQueueService {
             if (msg) {
                 const json = JSON.parse(msg.content.toString());
                 json.forEach(element => {
-                    console.log(element.socketMonitor)
+                    //console.log(element.socketMonitor)
+                    console.log('----------------------------------------------------------------')
+                    console.log(element)
                 });
                 this.rabbitmqService.ack(msg);
             }
