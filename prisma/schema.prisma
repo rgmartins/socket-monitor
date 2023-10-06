@@ -24,3 +24,24 @@ model Connection {
   probe          String
   memo           String
 }
+
+model ConnectionMonitor {
+  id                     String   @id @default(auto()) @map("_id") @db.ObjectId
+  connectionId           String
+  description            String
+  queueName              String
+  host                   String
+  port                   Int
+  role                   String
+  numConnections         Int
+  header                 String
+  probe                  String
+  memo                   String
+  dateTimeStart          DateTime
+  dateTimeLastMessageInp DateTime
+  numberMessagesInp      Int
+  numberBytesInp         Int
+  numberMessagesOut      Int
+  numberBytesOut         Int
+}
+
