@@ -32,7 +32,7 @@ export class LoadFileFromQueueService {
 
     async updateMonitor(reg: any) {
         console.log('*----------------------------------------------------------------*')
-        console.log(reg)
+        console.log(reg.socketMonitor)
         const monitor = {
             connectionId: reg.socketConexaoDados.id,
             description: reg.socketConexaoDados.description,
